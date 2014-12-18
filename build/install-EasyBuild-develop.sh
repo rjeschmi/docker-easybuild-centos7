@@ -113,10 +113,10 @@ github_clone_branch "easybuild-easyblocks"  "develop"
 github_clone_branch "easybuild-easyconfigs" "develop"
 
 # Clone base repository with the 'master' branch
-github_clone_branch "easybuild" "master"
+#github_clone_branch "easybuild" "master"
 
 # Clone wiki repository with the 'master' branch
-github_clone_branch "easybuild-wiki" "master"
+#github_clone_branch "easybuild-wiki" "master"
 
 # Create the module file
 mkdir -p "${INSTALL_DIR}/modulefiles"
