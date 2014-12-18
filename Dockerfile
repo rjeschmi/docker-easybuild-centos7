@@ -32,4 +32,4 @@ ADD build/config.cfg /software/config/config.cfg
 RUN useradd -m build
 RUN chown -R build.build /software/easybuild
 
-VOLUME ['/software/easybuild']
+VOLUME ["/software/easybuild"]
