@@ -2,10 +2,14 @@ FROM centos:centos6
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
-RUN yum -y install git
+RUN yum -y install git tar
 RUN mkdir -p /build
 ADD https://github.com/TACC/Lmod/archive/5.8.tar.gz /build/
-RUN mv /build/5.8 /build/Lmod-5.8
+RUN mv /build/5.8.tar.gz /build/Lmod-5.8.tar.gz
+
+WORKDIR /build
+RUN tar xvf Lmod-5.8.tar.gz
+
 WORKDIR /build/Lmod-5.8
 
 RUN yum -y install epel-release make automake gcc gcc-c++ 
