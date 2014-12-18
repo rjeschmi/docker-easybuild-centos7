@@ -4,8 +4,8 @@ MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
 RUN yum -y install git
 RUN mkdir -p /build
-ADD build/Lmod-5.8.tar.bz2 /build
-
+ADD https://github.com/TACC/Lmod/archive/5.8.tar.gz /build/
+RUN mv /build/5.8 /build/Lmod-5.8
 WORKDIR /build/Lmod-5.8
 
 RUN yum -y install epel-release make automake gcc gcc-c++ 
