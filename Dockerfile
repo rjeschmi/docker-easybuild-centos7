@@ -12,7 +12,7 @@ RUN tar xvf Lmod-5.8.tar.gz
 
 WORKDIR /build/Lmod-5.8
 
-RUN yum -y install epel-release make automake gcc gcc-c++ 
+RUN yum -y install epel-release make automake gcc gcc-c++ patch
 RUN yum -y install lua lua-devel lua-posix lua-filesystem tcl
 
 RUN ./configure --prefix=/software/Lmod
@@ -31,5 +31,7 @@ ADD build/config.cfg /software/config/config.cfg
 
 RUN useradd -m build
 RUN chown -R build.build /software/easybuild
+
+WORKDIR /software
 
 VOLUME ["/software/easybuild"]
