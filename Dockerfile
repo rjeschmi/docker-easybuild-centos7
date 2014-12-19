@@ -34,4 +34,3 @@ RUN chown -R build.build /software/easybuild
 
 WORKDIR /software
 
-VOLUME ["/software/easybuild"]
