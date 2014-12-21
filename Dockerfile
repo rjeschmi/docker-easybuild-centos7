@@ -2,6 +2,8 @@ FROM centos:centos6
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 RUN sed "s/enabled.*$/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf
+RUN sed "/^mirrorlist/s/^/#/" -i /etc/yum.repos.d/CentOS-Base.repo
+RUN sed "/^#baseurl/s/^#//" -i /etc/yum.repos.d/CentOS-Base.repo
 RUN useradd -m build
 
 RUN yum -y install git tar which bzip2 \
