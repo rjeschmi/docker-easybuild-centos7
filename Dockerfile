@@ -2,7 +2,7 @@ FROM centos:centos6
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
-RUN yum -y install git tar
+RUN yum -y install git tar which bzip2
 RUN mkdir -p /build
 ADD https://github.com/TACC/Lmod/archive/5.8.tar.gz /build/
 RUN mv /build/5.8.tar.gz /build/Lmod-5.8.tar.gz
