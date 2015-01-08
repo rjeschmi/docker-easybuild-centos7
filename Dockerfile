@@ -26,9 +26,10 @@ ADD build/config.cfg /software/config/config.cfg
 
 
 RUN chown -R build.build /software
-WORKDIR /build
-RUN curl -O https://raw.githubusercontent.com/hpcugent/easybuild-framework/develop/easybuild/scripts/bootstrap_eb.py 
-RUN su -l -c 'module load lmod && python /build/bootstrap_eb.py /software/easybuild' - build
+
+RUN mkdir -p /software/easybuild-develop
+ADD build/install-EasyBuild-develop.sh /build/install-EasyBuild-develop.sh
+RUN /build/install-EasyBuild-develop.sh hpcugent /software/easybuild-develop
 
 ADD build/z99_StdEnv.sh /etc/profile.d/z99_StdEnv.sh
 
