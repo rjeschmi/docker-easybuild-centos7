@@ -42,7 +42,7 @@ RUN mkdir -p /export/easybuild
 RUN useradd -u 1000 easybuild
 RUN chown -R easybuild.easybuild /export
 
-RUN yum -y install python-keyring zlib-devel openssl-devel libibverbs-devel
+RUN yum -y install python-keyring zlib-devel openssl-devel libibverbs-devel unzip
 
 ADD ./easybuild-docker.sh /usr/bin/easybuild-docker
 RUN chmod +x /usr/bin/easybuild-docker
