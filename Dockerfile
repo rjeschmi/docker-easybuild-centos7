@@ -28,6 +28,7 @@ USER easybuild
 WORKDIR /export/easybuild
 
 VOLUME /export/easybuild
+VOLUME /software/easybuild/sources
 
 CMD ["/usr/bin/easybuild-docker"]
 
