@@ -2,7 +2,6 @@ FROM rjeschmi/lmod
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
-
 ADD build/config.cfg /software/config/config.cfg
 RUN chown -R build.build /software
 
@@ -28,7 +27,11 @@ USER easybuild
 WORKDIR /export/easybuild
 
 VOLUME /export/easybuild
-VOLUME /software/easybuild/sources
+
+USER root
+RUN yum -y install python-keyring zlib-devel openssl-devel libibverbs-devel unzip
+
+USER easybuild
 
 CMD ["/usr/bin/easybuild-docker"]
 
