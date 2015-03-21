@@ -14,5 +14,5 @@ FROM_PR_OPT=${FROM_PR:+"--from-pr=${FROM_PR}"}
 
 python -c "import getpass, keyring; keyring.set_password('github_token', '${GITHUB_USER}', '${GITHUB_TOKEN}')"
 
-eb ${EB_FILES} ${FROM_PR_OPT} ${GITHUB_OPT} {OTHER_OPTS} -dfr
+eb ${EB_FILES} ${FROM_PR_OPT} ${GITHUB_OPT} ${OTHER_OPTS} -dfr
 
