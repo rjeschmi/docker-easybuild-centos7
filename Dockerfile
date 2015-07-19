@@ -1,4 +1,4 @@
-FROM rjeschmi/lmod
+FROM rjeschmi/lmod:centos7-lmod6
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
