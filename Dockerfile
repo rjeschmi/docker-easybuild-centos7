@@ -2,8 +2,9 @@ FROM rjeschmi/lmod:centos7-lmod6
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
+RUN useradd -u 1000 easybuild
 ADD build/config.cfg /software/config/config.cfg
-RUN chown -R build.build /software
+RUN chown -R easybuild.easybuild /software
 
 RUN mkdir -p /software/easybuild-develop
 ADD build/install-EasyBuild-develop.sh /build/install-EasyBuild-develop.sh
@@ -17,7 +18,6 @@ RUN chown -R build.build /software/easybuild
 
 
 RUN mkdir -p /export/easybuild
-RUN useradd -u 1000 easybuild
 RUN chown -R easybuild.easybuild /export
 
 ADD ./easybuild-docker.sh /usr/bin/easybuild-docker
