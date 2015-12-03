@@ -34,5 +34,5 @@ RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel lib
 
 USER easybuild
 
-CMD ["/usr/bin/easybuild-docker"]
+CMD ["bash"]
 
