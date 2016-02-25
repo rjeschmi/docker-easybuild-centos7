@@ -30,6 +30,7 @@ VOLUME /export/easybuild
 VOLUME /software/easybuild-develop
 
 USER root
-RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils
+RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils python-pip
 
+RUN pip install pyelftools
 USER easybuild
