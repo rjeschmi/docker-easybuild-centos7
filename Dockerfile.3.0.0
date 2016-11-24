@@ -1,0 +1,14 @@
+FROM rjeschmi/easybuild:prereq
+
+MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
+
+ENV EB_VER 3.0.0
+
+USER root
+WORKDIR /build
+RUN curl -O https://raw.githubusercontent.com/hpcugent/easybuild-framework/easybuild-framework-v${EB_VER}/easybuild/scripts/bootstrap_eb.py
+RUN su -l -c 'module load lmod && python /build/bootstrap_eb.py /easybuild' - easybuild
+
+USER easybuild
+
+CMD ["/usr/bin/easybuild-docker"]

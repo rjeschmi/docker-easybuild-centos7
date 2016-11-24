@@ -1,0 +1,23 @@
+FROM rjeschmi/lmod:latest
+
+MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
+
+RUN useradd -u 1000 easybuild
+ADD build/config.cfg /easybuild/config/config.cfg
+RUN chown -R easybuild.easybuild /easybuild
+
+RUN mkdir -p /easybuild/easybuild-develop
+ADD build/z99_StdEnv.sh /etc/profile.d/z99_StdEnv.sh
+
+RUN mkdir -p /export
+RUN chown -R easybuild.easybuild /export
+
+VOLUME /export/easybuild
+VOLUME /easybuild/easybuild-develop
+
+RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils
+
+ADD ./easybuild-docker.sh /usr/bin/easybuild-docker
+RUN chmod +x /usr/bin/easybuild-docker
+
+CMD ["/usr/bin/easybuild-docker"]
