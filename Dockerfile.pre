@@ -20,4 +20,4 @@ RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel lib
 ADD ./easybuild-docker.sh /usr/bin/easybuild-docker
 RUN chmod +x /usr/bin/easybuild-docker
 
-CMD ["/usr/bin/easybuild-docker"]
+ENTRYPOINT ["eb"]
