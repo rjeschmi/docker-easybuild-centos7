@@ -1,4 +1,4 @@
-FROM rjeschmi/easybuild:prereq
+FROM rjeschmi/easybuild-centos7:prereq
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
