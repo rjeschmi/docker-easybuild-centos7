@@ -11,4 +11,3 @@ RUN su -l -c 'module load lmod && python /build/bootstrap_eb.py /easybuild' - ea
 
 USER easybuild
 
-CMD ["/usr/bin/easybuild-docker"]

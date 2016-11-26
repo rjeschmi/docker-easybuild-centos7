@@ -8,6 +8,7 @@ RUN chown -R easybuild.easybuild /easybuild
 
 RUN mkdir -p /easybuild/easybuild-develop
 ADD build/z99_StdEnv.sh /etc/profile.d/z99_StdEnv.sh
+ADD build/StdEnv.lua /easybuild/Lmod/lmod/lmod/modulefiles/Core/StdEnv.lua
 
 RUN mkdir -p /export
 RUN chown -R easybuild.easybuild /export
@@ -17,7 +18,7 @@ VOLUME /easybuild/easybuild-develop
 
 RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils
 
-ADD ./easybuild-docker.sh /usr/bin/easybuild-docker
-RUN chmod +x /usr/bin/easybuild-docker
+ADD ./build/eb.wrapper /usr/bin/eb
+RUN chmod +x /usr/bin/eb
 
 ENTRYPOINT ["eb"]

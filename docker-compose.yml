@@ -1,2 +1,13 @@
-easybuild: 
-    build: .
+version: '2'
+services: 
+    prereq:
+        build:
+            context: .
+            dockerfile: Dockerfile.pre
+        image: rjeschmi/easybuild-centos7:prereq
+    easybuild3:
+        build: 
+            context: .
+            dockerfile: Dockerfile.3.0.0
+        image: rjeschmi/easybuild-centos7:3.0.0
+        network_mode: "host"
