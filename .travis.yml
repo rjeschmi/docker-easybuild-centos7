@@ -7,7 +7,7 @@ services:
 
 before_install:
     - docker pull rjeschmi/easybuild-centos7:3.0.0
-    - docker run carlad/sinatra /bin/sh -c "python -O -m test.framework.suite"
+    - docker run --entrypoint bash rjeschmi/easybuild-centos7:3.0.0 /bin/sh -c "python -O -m test.framework.suite"
 
 script:
     - python -O -m test.framework.suite
