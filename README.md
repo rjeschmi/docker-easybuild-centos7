@@ -1,4 +1,4 @@
-docker-easybuild-centos6
+docker-easybuild-centos7
 ========================
 
 This is just [EasyBuild](https://hpcugent.github.io/easybuild/) in a CentOS image. When you start it up eb should be in your path by default.

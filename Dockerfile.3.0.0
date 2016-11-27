@@ -10,4 +10,4 @@ RUN curl -O https://raw.githubusercontent.com/hpcugent/easybuild-framework/easyb
 RUN su -l -c 'module load lmod && python /build/bootstrap_eb.py /easybuild' - easybuild
 
 USER easybuild
-
+WORKDIR /export
