@@ -1,0 +1,13 @@
+sudo: required
+
+language: python
+
+services:
+      - docker
+
+before_install:
+    - docker pull rjeschmi/easybuild-centos7:3.0.0
+    - docker run carlad/sinatra /bin/sh -c "python -O -m test.framework.suite"
+
+script:
+    - python -O -m test.framework.suite
