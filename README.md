@@ -11,3 +11,4 @@ The --rm option removes the container when it exits. You will lose all your work
 
 EasyBuild prefers that you don't run as root so it will start you as a user other than root (easybuild in the default case)
 
+[![Build Status](https://travis-ci.org/rjeschmi/docker-easybuild-centos7.svg?branch=master)](https://travis-ci.org/rjeschmi/docker-easybuild-centos7)
