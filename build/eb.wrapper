@@ -1,9 +1,9 @@
 #!/bin/bash
 
-. /easybuild/Lmod/lmod/lmod/init/profile
-export MODULEPATH=$(/easybuild/Lmod/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/easybuild-develop/modulefiles)
-export MODULEPATH=$(/easybuild/Lmod/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/modules/all/Core)
-export MODULEPATH=$(/easybuild/Lmod/lmod/lmod/libexec/addto --append MODULEPATH /export/easybuild/modules/all)
+. /easybuild/deps/lmod/lmod/init/profile
+export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/easybuild-develop/modulefiles)
+export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/modules/all/Core)
+export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto --append MODULEPATH /export/easybuild/modules/all)
 export EASYBUILD_CONFIGFILES=/easybuild/config/config.cfg
 
 if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
