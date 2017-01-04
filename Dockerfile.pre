@@ -3,12 +3,12 @@ FROM rjeschmi/lmod:latest
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
 RUN useradd -u 1000 easybuild
-ADD build/config.cfg /easybuild/config/config.cfg
+ADD build/config.cfg /easybuild/etc/easybuild.d/00-config-pre.cfg
 RUN chown -R easybuild.easybuild /easybuild
 
 RUN mkdir -p /easybuild/easybuild-develop
 ADD build/z99_StdEnv.sh /etc/profile.d/z99_StdEnv.sh
-ADD build/StdEnv.lua /easybuild/deps/lmod/lmod/modulefiles/Core/StdEnv.lua
+ADD build/StdEnv.pre.lua /easybuild/deps/lmod/lmod/modulefiles/Core/StdEnv.lua
 
 RUN mkdir -p /export
 RUN chown -R easybuild.easybuild /export
