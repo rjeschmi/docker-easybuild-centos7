@@ -10,5 +10,10 @@ if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
   __Init_Default_Modules=1; export __Init_Default_Modules;
     module getdefault default || module load StdEnv
 fi
+if [[ -n $EBROOTEASYBUILD ]]; then
+  $EBROOTEASYBUILD/bin/eb "$@"
+else
+  echo "EBROOT not found"
+  exit 1
+fi
 
-$EBROOTEASYBUILD/bin/eb "$@"

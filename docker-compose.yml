@@ -24,7 +24,13 @@ services:
             - ./packages:/easybuild/packages
         entrypoint: bash
     ebfpm:
-         build:
+        build:
              context: .
              dockerfile: Dockerfile.fpm
-         image: rjeschmi/easybuild-centos7:3-fpm
+        image: rjeschmi/easybuild-centos7:3-fpm
+    ebdev:
+        build:
+             context: .
+             dockerfile: Dockerfile.develop
+        image: rjeschmi/easybuild-centos7:develop
+
