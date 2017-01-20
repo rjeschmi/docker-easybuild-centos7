@@ -11,3 +11,10 @@ services:
             dockerfile: Dockerfile.3.0.0
         image: rjeschmi/easybuild-centos7:3.0.0
         network_mode: "host"
+        volumes:
+            - ./packages:/easybuild/packages
+    ebfpm:
+         build:
+             context: .
+             dockerfile: Dockerfile.fpm
+         image: rjeschmi/easybuild-centos7:3-fpm

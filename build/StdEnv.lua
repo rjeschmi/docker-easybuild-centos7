@@ -1,3 +1,3 @@
 
-prepend_path("XDG_CONFIG_DIRS", "/easyconfig/etc")
+prepend_path("XDG_CONFIG_DIRS", "/easybuild/etc")
 load("EasyBuild")
