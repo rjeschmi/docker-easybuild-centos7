@@ -1,0 +1,11 @@
+FROM rjeschmi/easybuild-centos7:3.0.0
+
+MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
+
+USER root
+RUN yum -y install ruby ruby-devel
+RUN gem install fpm
+
+WORKDIR /easybuild/packages
+
+ENTRYPOINT /bin/bash

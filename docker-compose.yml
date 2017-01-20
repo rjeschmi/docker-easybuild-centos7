@@ -13,6 +13,16 @@ services:
         network_mode: "host"
         volumes:
             - ./packages:/easybuild/packages
+
+    ebshell:
+        build: 
+            context: .
+            dockerfile: Dockerfile.3.0.0
+        image: rjeschmi/easybuild-centos7:3.0.0
+        network_mode: "host"
+        volumes:
+            - ./packages:/easybuild/packages
+        entrypoint: bash
     ebfpm:
          build:
              context: .
