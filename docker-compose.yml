@@ -33,4 +33,8 @@ services:
              context: .
              dockerfile: Dockerfile.develop
         image: rjeschmi/easybuild-centos7:develop
-
+    eb:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: rjeschmi/easybuild-centos7:latest
