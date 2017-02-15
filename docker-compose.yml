@@ -38,3 +38,8 @@ services:
             context: .
             dockerfile: Dockerfile
         image: rjeschmi/easybuild-centos7:latest
+    ebsing:
+        build:
+            context: .
+            dockerfile: Dockerfile.singularity
+        image: rjeschmi/easybild-centos7:singularity

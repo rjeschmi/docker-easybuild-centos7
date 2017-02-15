@@ -13,8 +13,6 @@ ADD build/StdEnv.pre.lua /easybuild/deps/lmod/lmod/modulefiles/Core/StdEnv.lua
 RUN mkdir -p /export
 RUN chown -R easybuild.easybuild /export
 
-VOLUME /export/easybuild
-
 RUN yum clean all && yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils python-pygit2
 
 ADD ./build/eb.wrapper /usr/bin/eb

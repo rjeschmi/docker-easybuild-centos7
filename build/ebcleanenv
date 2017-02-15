@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "env: $@"
+env -i bash -l -c "/usr/bin/eb $@"
