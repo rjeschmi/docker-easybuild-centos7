@@ -1,5 +1,5 @@
 
-export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/easybuild-develop/modulefiles)
+export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto MODULEPATH /easybuild/easybuild-develop/modulefiles)
 export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/modules/all/Core)
 export MODULEPATH=$(/easybuild/deps/lmod/lmod/libexec/addto --append MODULEPATH /easybuild/modules/all)
 

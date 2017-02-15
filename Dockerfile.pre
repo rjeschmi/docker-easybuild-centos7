@@ -16,7 +16,7 @@ RUN chown -R easybuild.easybuild /export
 VOLUME /export/easybuild
 VOLUME /easybuild/easybuild-develop
 
-RUN yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils
+RUN yum clean all && yum -y install python-setuptools python-keyring zlib-devel openssl-devel libibverbs-devel unzip rpm-build createrepo yum-utils python-pygit2
 
 ADD ./build/eb.wrapper /usr/bin/eb
 RUN chmod +x /usr/bin/eb
