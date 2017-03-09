@@ -4,8 +4,10 @@ MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
 USER root
 ADD build/ebcleanenv /usr/bin/ebcleanenv
+ADD build/eb.sing /usr/bin/eb
 ADD build/config-singularity.cfg /easybuild/etc/easybuild.d/99-singularity.cfg
 RUN chmod a+rx /usr/bin/ebcleanenv
+RUN chmod a+rx /usr/bin/eb
 
 RUN mkdir /export/sources
 RUN chmod -R a+rwX /export

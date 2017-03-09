@@ -42,4 +42,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile.singularity
-        image: rjeschmi/easybild-centos7:singularity
+        image: rjeschmi/easybuild-centos7-singularity
+        volumes:
+            - ./build/eb.sing:/usr/bin/eb
+            - ./build/ebcleanenv:/usr/bin/ebcleanenv

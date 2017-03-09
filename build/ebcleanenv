@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "env: $@"
-env -i bash -l -c "/usr/bin/eb $@"
+env -i PATH="/usr/bin:/bin" /usr/bin/eb "$@"
