@@ -1,9 +1,9 @@
-FROM rjeschmi/easybuild-centos7:3.0.0
+FROM rjeschmi/easybuild-centos7:latest
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
 USER root
-RUN yum -y install ruby ruby-devel
+RUN yum clean all && yum -y install ruby ruby-devel
 RUN gem install fpm
 
 WORKDIR /easybuild/packages
