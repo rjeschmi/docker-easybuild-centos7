@@ -25,20 +25,14 @@ github_clone_branch()
     BRANCH="$2"
 
     cd "${INSTALL_DIR}"
-    echo "=== Cloning ${GITHUB_USERNAME}/${REPO} ... in ${INSTALL_DIR}"
-    git clone --branch master https://github.com/${GITHUB_USERNAME}/${REPO}.git
+    echo "=== Cloning ${GITHUB_USERNAME}/${REPO} ..."
+    git clone --branch "${BRANCH}" "https://github.com/${GITHUB_USERNAME}/${REPO}"
 
-    echo "=== Adding and fetching HPC-UGent GitHub repository @ hpcugent/{$REPO} ..."
+    echo "=== Adding and fetching HPC-UGent GitHub repository @ easybuilders/${REPO} ..."
     cd "${REPO}"
-    git remote add "github_hpcugent" "https://github.com/hpcugent/${REPO}.git"
-    git fetch github_hpcugent
-    
-    # If branch is not 'master', track and checkout it
-    if [ "$BRANCH" != "master" ] ; then
-        echo "=== Checking out the '${BRANCH}' branch ..."
-        git branch --track "${BRANCH}" "github_hpcugent/${BRANCH}"
-        git checkout "${BRANCH}"
-    fi
+    git remote add "github_easybuilders" "https://github.com/easybuilders/${REPO}"
+    git fetch github_easybuilders
+    git branch --set-upstream "${BRANCH}" "github_easybuilders/${BRANCH}"
 }
 
 # Print the content of the module
@@ -50,7 +44,7 @@ cat <<EOF
 proc ModulesHelp { } {
     puts stderr {   EasyBuild is a software build and installation framework
 written in Python that allows you to install software in a structured,
-repeatable and robust way. - Homepage: http://hpcugent.github.com/easybuild/
+repeatable and robust way. - Homepage: https://easybuilders.github.io/easybuild/
 
 This module provides the development version of EasyBuild.
 }
@@ -58,7 +52,7 @@ This module provides the development version of EasyBuild.
 
 module-whatis {EasyBuild is a software build and installation framework
 written in Python that allows you to install software in a structured,
-repeatable and robust way. - Homepage: http://hpcugent.github.com/easybuild/
+repeatable and robust way. - Homepage: https://easybuilders.github.io/easybuild/
 
 This module provides the development version of EasyBuild.
 }
@@ -70,6 +64,7 @@ conflict    EasyBuild
 prepend-path    PATH            "\$root/easybuild-framework"
 
 prepend-path    PYTHONPATH      "\$root/vsc-base/lib"
+prepend-path    PYTHONPATH      "\$root/vsc-install/lib"
 prepend-path    PYTHONPATH      "\$root/easybuild-framework"
 prepend-path    PYTHONPATH      "\$root/easybuild-easyblocks"
 prepend-path    PYTHONPATH      "\$root/easybuild-easyconfigs"
@@ -109,27 +104,29 @@ cd "${INSTALL_DIR}"
 INSTALL_DIR="${PWD}" # get the full path
 
 # Clone repository for vsc-base dependency with 'master' branch
-github_clone_branch "vsc-base"   "master"
+github_clone_branch "vsc-base"    "master"
+github_clone_branch "vsc-install" "master"
 
 # Clone code repositories with the 'develop' branch
 github_clone_branch "easybuild-framework"   "develop"
 github_clone_branch "easybuild-easyblocks"  "develop"
 github_clone_branch "easybuild-easyconfigs" "develop"
 
-# Clone base repository with the 'master' branch
-github_clone_branch "easybuild" "master"
+# Clone base repository with the 'develop' branch
+github_clone_branch "easybuild" "develop"
 
 # Clone wiki repository with the 'master' branch
 github_clone_branch "easybuild-wiki" "master"
 
 # Create the module file
 EB_DEVEL_MODULE_NAME="EasyBuild-develop"
-EB_DEVEL_MODULE="${INSTALL_DIR}/modulefiles/${EB_DEVEL_MODULE_NAME}"
-mkdir -p ${INSTALL_DIR}/modulefiles
+MODULES_INSTALL_DIR=${INSTALL_DIR}/modules
+EB_DEVEL_MODULE="${MODULES_INSTALL_DIR}/${EB_DEVEL_MODULE_NAME}"
+mkdir -p ${MODULES_INSTALL_DIR}
 print_devel_module > "${EB_DEVEL_MODULE}"
 echo 
-echo "=== Run 'module use ${INSTALL_DIR}' and 'module load ${EB_DEVEL_MODULE_NAME}' to use your development version of EasyBuild."
-echo "=== (you can append ${INSTALL_DIR} to your MODULEPATH to make this module always available for loading)"
+echo "=== Run 'module use ${MODULES_INSTALL_DIR}' and 'module load ${EB_DEVEL_MODULE_NAME}' to use your development version of EasyBuild."
+echo "=== (you can append ${MODULES_INSTALL_DIR} to your MODULEPATH to make this module always available for loading)"
 echo
 echo "=== To update each repository, run 'git pull origin' in each subdirectory of ${INSTALL_DIR}"
 echo

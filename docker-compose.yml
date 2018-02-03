@@ -27,7 +27,7 @@ services:
         build:
              context: .
              dockerfile: Dockerfile.fpm
-        image: rjeschmi/easybuild-centos7:3-fpm
+        image: rjeschmi/easybuild-centos7:fpm
     ebdev:
         build:
              context: .

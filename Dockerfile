@@ -13,5 +13,7 @@ RUN su -l -c 'module load lmod && python /build/bootstrap_eb.py /easybuild' - ea
 
 ADD build/StdEnv.lua /easybuild/deps/lmod/lmod/modulefiles/Core/StdEnv.lua
 
+RUN yum -y install tmux
+
 USER easybuild
 WORKDIR /export

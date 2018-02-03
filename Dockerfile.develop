@@ -1,11 +1,11 @@
-FROM rjeschmi/easybuild-centos7:prereq
+FROM rjeschmi/easybuild-centos7:fpm
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
 
 ADD build/install-EasyBuild-develop.sh /build/install-EasyBuild-develop.sh
 RUN chmod +x /build/install-EasyBuild-develop.sh
-RUN /build/install-EasyBuild-develop.sh hpcugent /easybuild/easybuild-develop
+RUN /build/install-EasyBuild-develop.sh rjeschmi /easybuild/easybuild-develop
 RUN yum install -y python2-pip
 RUN pip install vsc-install
 
