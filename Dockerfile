@@ -2,7 +2,7 @@ FROM rjeschmi/easybuild-centos7:prereq
 
 MAINTAINER Robert Schmidt <rjeschmi@gmail.com>
 
-ENV EB_VER 3.3.1
+ENV EB_VER 3.6.2
 
 USER root
 WORKDIR /build
